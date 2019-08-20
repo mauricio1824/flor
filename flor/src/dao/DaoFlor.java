@@ -40,4 +40,19 @@ public class DaoFlor {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
     }
+       public static boolean alterar(Flor objeto) {
+        String sql = "UPDATE flor SET ano = ?, nomepopular = ?, nomecientifica = ?, tamanhodapetala = ?, tamanhodasepala = ? WHERE codigo=?";
+        try {
+            PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, objeto.getCodigo());
+            ps.setInt(2, objeto.getAno());
+            ps.setString(3, objeto.getNomepopular());
+            ps.setString(4, objeto.getNomecientifico());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
 }
