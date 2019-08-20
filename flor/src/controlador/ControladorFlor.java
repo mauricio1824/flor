@@ -24,8 +24,20 @@ public class ControladorFlor {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
 }
-
-    public static void alterar(ManutencaoFlor aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  public static void alterar(ManutencaoFlor man){
+        Flor objeto = new Flor();
+        //definir todos os atributos
+        objeto.setCodigo(Integer.parseInt(man.jtfCodigo.getText()));
+        objeto.setAno(Integer.parseInt(man.jtfAno.getText()));
+        objeto.setNomepopular(man.jtfNomePopular.getText());
+        objeto.setNomecientifico(man.jtfNomeCientifico.getText());
+        objeto.setTamanhodapetala(Double.parseDouble(man.jtfTamanhodaPetala.getText()));
+        objeto.setTamanhodasepala(Double.parseDouble(man.jtfTamanhodaSepala.getText()));
+        boolean resultado = DaoFlor.alterar(objeto);
+        if (resultado) {
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
     }
 }

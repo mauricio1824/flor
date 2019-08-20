@@ -48,6 +48,8 @@ public class DaoFlor {
             ps.setInt(2, objeto.getAno());
             ps.setString(3, objeto.getNomepopular());
             ps.setString(4, objeto.getNomecientifico());
+            ps.setDouble(5, objeto.getTamanhodapetala());
+            ps.setDouble(6, objeto.getTamanhodasepala());
             ps.executeUpdate();
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
